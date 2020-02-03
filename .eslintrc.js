@@ -26,5 +26,6 @@ module.exports = {
     'radix': 'off',
     'class-methods-use-this': 'off',
     'spaced-comment': 'off',
+    'jest/expect-expect': 'off',
   },
 }

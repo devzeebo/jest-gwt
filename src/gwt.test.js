@@ -1,11 +1,12 @@
 /* eslint-disable camelcase,prefer-arrow-callback,func-names,no-use-before-define,no-param-reassign */
-import testContext, { unboundTestContext } from './gwt';
+import { noop, toLower } from 'lodash/fp';
+import test, { unboundTestContext } from './gwt';
 
 describe('test context', () => {
-  testContext('with no errors', {
+  test('no errors', {
     given: {
       mock_jest_test_function,
-      test_case,
+      GOOD_test_case,
     },
     when: {
       executing_test_case,
@@ -14,14 +15,13 @@ describe('test context', () => {
       all_GIVENS_called,
       all_WHENS_called,
       all_THENS_called,
-      expect_error_NOT_called,
     },
   });
 
-  testContext('with errors', {
+  test('properly handled errors', {
     given: {
       mock_jest_test_function,
-      test_case_WITH_ERROR_in_WHEN,
+      ERROR_test_case_WITH_expect_error,
     },
     when: {
       executing_test_case,
@@ -30,13 +30,39 @@ describe('test context', () => {
       expect_error_CALLED,
     },
   });
+
+  test('expected error but no error thrown', {
+    given: {
+      mock_jest_test_function,
+      GOOD_test_case_WITH_expect_error,
+    },
+    when: {
+      executing_test_case,
+    },
+    then: {
+      expect_error: error_containing('expected error to be thrown, but no error was thrown'),
+    },
+  });
+
+  test('unexpected error', {
+    given: {
+      mock_jest_test_function,
+      ERROR_test_case_WITHOUT_expect_error,
+    },
+    when: {
+      executing_test_case,
+    },
+    then: {
+      expect_error: error_containing('oops!'),
+    },
+  });
 });
 
 //#region givens
 function mock_jest_test_function() {
   this.mock_jest_func = async (_, func) => func();
 }
-function test_case() {
+function GOOD_test_case() {
   const executions = [];
 
   this.gwt_definition = {
@@ -51,18 +77,17 @@ function test_case() {
     then: {
       assert_something() { executions.push('assert_something'); },
       assert_something_else() { executions.push('assert_something_else'); },
-      expect_error() { executions.push('expect_error'); },
     },
   };
 
   this.executions = executions;
 }
-function test_case_WITH_ERROR_in_WHEN() {
+function ERROR_test_case_WITH_expect_error() {
   const executions = [];
 
   this.gwt_definition = {
     when: {
-      oops() { throw new Error(); },
+      oops() { throw new Error('Oops!'); },
     },
     then: {
       expect_error() { executions.push('expect_error'); },
@@ -70,6 +95,22 @@ function test_case_WITH_ERROR_in_WHEN() {
   };
 
   this.executions = executions;
+}
+function ERROR_test_case_WITHOUT_expect_error() {
+  this.gwt_definition = {
+    when: {
+      oops() { throw new Error('Oops!'); },
+    },
+    then: {
+    },
+  };
+}
+function GOOD_test_case_WITH_expect_error() {
+  this.gwt_definition = {
+    then: {
+      expect_error: noop(),
+    },
+  };
 }
 //#endregion
 
@@ -89,10 +130,12 @@ function all_WHENS_called() {
 function all_THENS_called() {
   expect(this.executions).toEqual(expect.arrayContaining(['assert_something', 'assert_something_else']));
 }
-function expect_error_NOT_called() {
-  expect(this.executions).not.toEqual(expect.arrayContaining(['expect_error']));
-}
 function expect_error_CALLED() {
   expect(this.executions).toEqual(expect.arrayContaining(['expect_error']));
+}
+function error_containing(message) {
+  return function (e) {
+    expect(toLower(e.message)).toEqual(expect.stringMatching(toLower(message)));
+  };
 }
 //#endregion
