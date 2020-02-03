@@ -19,7 +19,7 @@ module.exports = {
 
   // Indicates whether the coverage information should be collected while
   // executing the test
-  collectCoverage: true,
+  // collectCoverage: false, // leave this false so the vscode test runner doesn't produce coverage
 
   // An array of glob patterns indicating a set of files for which coverage
   // information should be collected
@@ -45,7 +45,14 @@ module.exports = {
 
   // An object that configures minimum threshold enforcement for coverage
   // results
-  // coverageThreshold: null,
+  coverageThreshold: {
+    global: {
+      branches: 100,
+      functions: 100,
+      lines: 100,
+      statements: 100,
+    },
+  },
 
   // A path to a custom dependency extractor
   // dependencyExtractor: null,
@@ -125,7 +132,7 @@ module.exports = {
 
   // A list of paths to directories that Jest should use to search for files in
   roots: [
-    'src/',
+    './src/',
   ],
 
   // Allows you to use a custom runner instead of Jest's default test runner
