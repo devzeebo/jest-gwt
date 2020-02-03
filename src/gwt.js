@@ -25,17 +25,22 @@ export const unboundTestContext = (testFunc) => (name, gwtDefinition) => {
 
     await executeGwtStep(gwt.given);
 
+    let error;
     try {
       await executeGwtStep(gwt.when);
+    } catch (e) {
+      console.log(e);
+      error = e;
+    }
 
-      if (gwt.then.expect_error) {
+    if (gwt.then.expect_error) {
+      console.log(gwt.then);
+      if (!error) {
         throw new Error('Expected error to be thrown, but no error was thrown');
       }
-    } catch (e) {
-      if (!gwt.then.expect_error) {
-        throw e;
-      }
-      await gwt.then.expect_error.bind(context)(e);
+      await gwt.then.expect_error.bind(context)(error);
+    } else if (error) {
+      throw error;
     }
 
     await flow(
