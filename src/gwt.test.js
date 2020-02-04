@@ -108,7 +108,7 @@ function ERROR_test_case_WITHOUT_expect_error() {
 function GOOD_test_case_WITH_expect_error() {
   this.gwt_definition = {
     then: {
-      expect_error: noop(),
+      expect_error: noop,
     },
   };
 }
