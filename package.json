@@ -1,6 +1,6 @@
 {
   "name": "jest-gwt",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A small library to help Jest support given-when-then style testing without a bunch of overhead",
   "main": "lib/index.js",
   "files": [
