@@ -27,7 +27,6 @@ export const unboundTestContext = (testFunc) => (name, gwtDefinition) => {
 
     let error;
     try {
-      debugger;
       await executeGwtStep(gwt.when);
     } catch (e) {
       error = e;
