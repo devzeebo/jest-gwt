@@ -4,8 +4,9 @@
   "description": "A small library to help Jest support given-when-then style testing without a bunch of overhead",
   "main": "lib/index.js",
   "files": [
-    "lib/",
-    "src/"
+    "lib",
+    "src",
+    "!**/*.spec.js"
   ],
   "scripts": {
     "build": "babel src -d lib",
@@ -49,6 +50,6 @@
     "jest": "^26.1.0"
   },
   "dependencies": {
-    "gwt-runner": "^1.1.0"
+    "gwt-runner": "^1.1.1"
   }
 }
