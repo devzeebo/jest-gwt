@@ -1,6 +1,6 @@
 {
   "name": "jest-gwt",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A small library to help Jest support given-when-then style testing without a bunch of overhead",
   "main": "lib/index.js",
   "files": [
@@ -11,7 +11,7 @@
     "build": "babel src -d lib",
     "test": "jest ./src ./examples",
     "test:coverage": "npm run test -- --coverage",
-    "prepublish": "npm run build && npm run test:coverage"
+    "prepublishOnly": "npm run build && npm run test:coverage"
   },
   "repository": {
     "type": "git",
@@ -49,6 +49,6 @@
     "jest": "^26.1.0"
   },
   "dependencies": {
-    "gwt-runner": "^1.0.0"
+    "gwt-runner": "^1.1.0"
   }
 }
