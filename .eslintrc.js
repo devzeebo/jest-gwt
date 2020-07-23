@@ -9,6 +9,9 @@ module.exports = {
   parser: 'babel-eslint',
   overrides: [{
     files: ['**/*.spec.js'],
+    env: {
+      jest: true,
+    },
     rules: {
       camelcase: 'off',
       'prefer-arrow-callback': 'off',
