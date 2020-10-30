@@ -1,7 +1,6 @@
-import test from '../src';
 import axios from 'axios';
+import test from '../src';
 import validateEmailAddress from './axios';
-import { expect } from '@jest/globals';
 
 jest.mock('axios');
 
@@ -31,7 +30,7 @@ describe('the validate email address api', () => {
     },
     then: {
       expect_error: email_address_is_INVALID,
-    }
+    },
   });
 
   test('extracts error from network exception', {
@@ -44,14 +43,14 @@ describe('the validate email address api', () => {
     then: {
       expect_error: network_failed,
     },
-  })
+  });
 });
 
 function valid_email_address() {
   this.mock_email = 'valid@email.com';
 
   axios.post.mockResolvedValue({
-    data: { success: true }
+    data: { success: true },
   });
 }
 

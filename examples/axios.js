@@ -1,9 +1,9 @@
-import axios from 'axios';
+import axios from 'axios'; // eslint-disable-line import/no-extraneous-dependencies
 
-export default email => axios.post('/api/validateEmail', {
+export default (email) => axios.post('/api/validateEmail', {
   email,
 })
-  .then(res => {
+  .then((res) => {
     if (res.data.success) {
       return Promise.resolve(true);
     }
