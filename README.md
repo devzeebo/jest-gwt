@@ -1,5 +1,13 @@
 # jest-gwt
-A small library to help Jest support given-when-then style testing without a bunch of overhead
+A small library to help Jest support given-when-then style testing without a
+bunch of overhead
+
+### 1.x Deprecation
+I used `@jest/globals` in `jest-gwt` in order to ensure the `test` and
+`expect` variables were imported properly, and that caused `jest@24.x`
+projects to be incompatible. The 1.x branch therefore has been reverted to
+require only `jest@24`, and has removed the usage of `@jest/globals`. Moving
+forward, the 2.x branch will have a peer dependency on `jest@26` and above.
 
 ## Usage
 

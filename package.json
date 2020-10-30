@@ -1,6 +1,6 @@
 {
   "name": "jest-gwt",
-  "version": "1.2.2",
+  "version": "2.0.0",
   "description": "A small library to help Jest support given-when-then style testing without a bunch of overhead",
   "main": "lib/index.js",
   "files": [
@@ -19,7 +19,7 @@
     "url": "git+https://github.com/devzeebo/jest-gwt.git"
   },
   "peerDependencies": {
-    "jest": ">26.1.0"
+    "jest": ">26.0.0"
   },
   "keywords": [
     "jest",
@@ -37,17 +37,17 @@
   },
   "homepage": "https://github.com/devzeebo/jest-gwt#readme",
   "devDependencies": {
-    "@babel/cli": "^7.10.5",
-    "@babel/core": "^7.10.5",
-    "@babel/preset-env": "^7.10.4",
-    "axios": "^0.19.2",
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "axios": "^0.21.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.5.0",
+    "eslint": "^7.12.1",
     "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-lodash": "^7.1.0",
     "eslint-watch": "^7.0.0",
-    "jest": "^26.1.0"
+    "jest": "26.0.0"
   },
   "dependencies": {
     "gwt-runner": "^1.1.1"
