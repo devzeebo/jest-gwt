@@ -1,2 +1,5 @@
-export { default as gwtRunner } from 'gwt-runner';
+export {
+  default as gwtRunner,
+  TestContext,
+} from 'gwt-runner';
 export { default } from './jestGwt';

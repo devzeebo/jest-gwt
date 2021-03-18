@@ -1,6 +1,6 @@
 {
   "name": "jest-gwt",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A small library to help Jest support given-when-then style testing without a bunch of overhead",
   "main": "lib/index.js",
   "files": [
@@ -50,6 +50,6 @@
     "jest": "26.0.0"
   },
   "dependencies": {
-    "gwt-runner": "^1.1.1"
+    "gwt-runner": "^1.3.0"
   }
 }
