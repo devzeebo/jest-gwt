@@ -19,6 +19,11 @@ module.exports = {
       'no-use-before-define': 'off',
       'no-param-reassign': 'off',
     },
+  }, {
+    files: ['./examples/**'],
+    rules: {
+      'import/no-extraneous-dependencies': ['error', { ignoreDevDependencies: true }],
+    },
   }],
   rules: {
     'linebreak-style': 'off',

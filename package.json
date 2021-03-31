@@ -1,6 +1,6 @@
 {
   "name": "jest-gwt",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "A small library to help Jest support given-when-then style testing without a bunch of overhead",
   "main": "lib/index.js",
   "files": [
@@ -40,6 +40,7 @@
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
+    "@jest/globals": "^26.6.2",
     "axios": "^0.21.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.12.1",

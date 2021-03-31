@@ -1,7 +1,7 @@
-import test from '../src';
 import axios from 'axios';
-import validateEmailAddress from './axios';
 import { expect } from '@jest/globals';
+import test from '../src';
+import validateEmailAddress from './axios';
 
 jest.mock('axios');
 
