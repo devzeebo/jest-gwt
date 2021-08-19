@@ -2,12 +2,13 @@
 A small library to help Jest support given-when-then style testing without a
 bunch of overhead
 
-### 1.x Deprecation
-I used `@jest/globals` in `jest-gwt` in order to ensure the `test` and
-`expect` variables were imported properly, and that caused `jest@24.x`
-projects to be incompatible. The 1.x branch therefore has been reverted to
-require only `jest@24`, and has removed the usage of `@jest/globals`. Moving
-forward, the 2.x branch will have a peer dependency on `jest@26` and above.
+## Compatibility Chart
+
+| jest-gwt Version | Jest Version |
+| ---------------- | ------------ |
+|       1.x        |  24.x, 25.x  |
+|       2.x        |    > 26.x    |
+|       3.x        |    > 26.x    |
 
 ## Usage
 
@@ -38,6 +39,28 @@ forward, the 2.x branch will have a peer dependency on `jest@26` and above.
       });
     });
     ```
+
+## withAspect
+
+`withAspect` wraps up jest's `beforeEach` and `afterEach` to allow preparing and
+cleaning up the context before running tests.
+
+```js
+withAspect(
+  // this is the beforeEach. Do your prep work here
+  function(this: Context) {
+  },
+  // this is the afterEach. It is OPTIONAL. If you need to do clean up of
+  // external resources you allocated in the beforeEach, do it here
+  function(this: Context) {
+  }
+)
+```
+
+The `afterEach` has access to whatever values you put on the Context in the
+`beforeEach`. It does NOT have access to the values put on the Context during
+the specific test.
+
 
 ## Detailed Usage
 

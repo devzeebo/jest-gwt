@@ -1,28 +1,33 @@
 module.exports = {
   root: true,
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    project: './tsconfig.eslint.json',
+  },
   extends: [
-    'airbnb-base',
+    'airbnb-typescript/base',
     'plugin:lodash/recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
   ],
-  parser: 'babel-eslint',
   overrides: [{
-    files: ['**/*.spec.js'],
+    files: ['**/*.spec.ts'],
     env: {
       jest: true,
     },
     rules: {
+      'react/no-this-in-sfc': 'off',
       camelcase: 'off',
+      '@typescript-eslint/naming-convention': 'off',
       'prefer-arrow-callback': 'off',
       'func-names': 'off',
-      'no-use-before-define': 'off',
+      '@typescript-eslint/no-use-before-define': 'off',
       'no-param-reassign': 'off',
     },
   }, {
-    files: ['./examples/**'],
+    files: ['examples/**/*.ts'],
     rules: {
-      'import/no-extraneous-dependencies': ['error', { ignoreDevDependencies: true }],
+      'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     },
   }],
   rules: {
@@ -40,5 +45,15 @@ module.exports = {
     radix: 'off',
     'class-methods-use-this': 'off',
     'spaced-comment': 'off',
+    '@typescript-eslint/comma-dangle': ['error', {
+      arrays: 'always-multiline',
+      objects: 'always-multiline',
+      imports: 'always-multiline',
+      exports: 'always-multiline',
+      functions: 'always-multiline',
+      enums: 'always-multiline',
+      generics: 'ignore',
+      tuples: 'always-multiline',
+    }],
   },
 };
