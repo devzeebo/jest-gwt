@@ -3,10 +3,11 @@
   "version": "3.0.0",
   "description": "A small library to help Jest support given-when-then style testing without a bunch of overhead",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "files": [
     "lib",
     "src",
-    "!**/*.spec.js"
+    "!**/*.spec.ts"
   ],
   "scripts": {
     "clean": "rimraf lib",
