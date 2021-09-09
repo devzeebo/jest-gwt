@@ -6,7 +6,6 @@ module.exports = {
   },
   extends: [
     'airbnb-typescript/base',
-    'plugin:lodash/recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
   ],

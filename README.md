@@ -40,6 +40,29 @@ bunch of overhead
     });
     ```
 
+## Disabling a test
+Sometimes you want a test to be disabled in code. Jest offers this functionality with
+the `xtest` method, and we've duplicated this logic, but with strong typing so you can
+disable your gwt style tests.
+
+```js
+import test, { xtest } from 'jest-gwt';
+
+describe('test context', () => {
+  test('this test will run', {
+    then: {
+      CANARY,
+    },
+  });
+
+  xtest('this test will NOT run', {
+    when: {
+      oops_we_broke_this,
+    },
+  });
+});
+```
+
 ## withAspect
 
 `withAspect` wraps up jest's `beforeEach` and `afterEach` to allow preparing and
