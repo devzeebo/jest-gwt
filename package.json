@@ -1,13 +1,16 @@
 {
   "name": "jest-gwt",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "A small library to help Jest support given-when-then style testing without a bunch of overhead",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
     "lib",
     "src",
-    "!**/*.spec.ts"
+    "!**/*.spec.ts",
+    "!**/*.spec.js",
+    "!**/*.spec.d.ts",
+    "!**/*.spec.js.map"
   ],
   "scripts": {
     "clean": "rimraf lib",
@@ -41,26 +44,25 @@
   },
   "homepage": "https://github.com/devzeebo/jest-gwt#readme",
   "devDependencies": {
-    "@babel/cli": "^7.14.8",
-    "@babel/core": "^7.15.0",
-    "@babel/preset-env": "^7.15.0",
-    "@babel/preset-typescript": "^7.15.0",
-    "@jest/globals": "^27.0.6",
-    "@types/jest": "^27.0.1",
-    "@typescript-eslint/eslint-plugin": "^4.29.2",
-    "@typescript-eslint/parser": "^4.29.2",
-    "axios": "^0.21.1",
-    "babel-eslint": "^10.1.0",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/preset-typescript": "^7.16.0",
+    "@jest/globals": "^27.0.0",
+    "@types/jest": "^27.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "axios": "^0.24.0",
     "eslint": "^7.32.0",
-    "eslint-config-airbnb-typescript": "^12.3.1",
-    "eslint-plugin-import": "^2.24.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-airbnb-typescript": "^14.0.1",
+    "eslint-plugin-import": "^2.25.2",
     "eslint-watch": "^7.0.0",
-    "jest": "^27.0.6",
+    "jest": "^27.3.1",
     "npm-run-all": "^4.1.5",
-    "ts-jest": "^27.0.5",
-    "typescript": "^4.3.5"
+    "ts-jest": "^27.0.7",
+    "typescript": "^4.4.4"
   },
   "dependencies": {
-    "gwt-runner": "^2.0.0"
+    "gwt-runner": "^2.1.0"
   }
 }
