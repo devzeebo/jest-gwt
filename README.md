@@ -7,7 +7,7 @@ bunch of overhead
 | jest-gwt Version | Jest Version |
 | ---------------- | ------------ |
 |       1.x        |  24.x, 25.x  |
-|       2.x        |    > 26.x    |
+|       2.x        |  26.x, 27.x  |
 |       3.x        |    > 26.x    |
 
 ## Usage

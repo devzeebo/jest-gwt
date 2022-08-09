@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import axios from 'axios';
-import { mocked } from 'ts-jest/utils';
+import { mocked } from 'jest-mock';
 import { expect } from '@jest/globals';
 import test, { withAspect } from '../src';
 import validateEmailAddress from './axios';
