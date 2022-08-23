@@ -16,12 +16,23 @@ describe('jest-gwt', () => {
       then_NOT_called,
     },
   });
+
+  test('TestContext is exported', {
+    when: {
+      importing_module,
+    },
+    then: {
+      module_exports_TestContext,
+    },
+  });
 });
 
 type Context = {
   given: jest.Mock<any>,
   when: jest.Mock<any>,
   then: jest.Mock<any>,
+
+  module: any,
 };
 
 function a_given_function(this: Context) {
@@ -50,6 +61,10 @@ function executing_an_xtest(this: Context) {
   });
 }
 
+async function importing_module(this: Context) {
+  this.module = await import('./index');
+}
+
 function given_NOT_called(this: Context) {
   expect(this.given).not.toHaveBeenCalled();
 }
@@ -60,4 +75,8 @@ function when_NOT_called(this: Context) {
 
 function then_NOT_called(this: Context) {
   expect(this.then).not.toHaveBeenCalled();
+}
+
+function module_exports_TestContext(this: Context) {
+  expect(this.module.TestContext).toBeDefined();
 }

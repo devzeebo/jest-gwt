@@ -49,12 +49,12 @@ describe('the validate email address api', () => {
     function (this: Context) {
       jest.clearAllMocks();
 
-      console.log('context before the test: ', this);
+      // console.log('context before the test: ', this);
 
       this.bearer_token = 'some-token';
     },
     function (this: Context) {
-      console.log('context does not have specific test things after the test:', this);
+      // console.log('context does not have specific test things after the test:', this);
     },
   );
 });

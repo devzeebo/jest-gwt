@@ -3,7 +3,8 @@
   "include": [
     "./src",
     "./examples",
-    "./.eslintrc.js",
+    "*.js",
+    ".*.js",
     "./*.ts"
   ]
 }
