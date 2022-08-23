@@ -1,4 +1,5 @@
-import gwtRunner, { TestContext, GwtDefinition } from 'gwt-runner';
+import type { GwtDefinition } from 'gwt-runner';
+import gwtRunner, { TestContext } from 'gwt-runner';
 import {
   test as jestTest,
   beforeEach as jestBeforeEach,
