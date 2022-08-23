@@ -1,1 +1,0 @@
-{"cacheable":false,"platform":"linux","arch":"x64","nodeVersion":"v18.0.0","command":"jest --coverage","extraArgs":[],"clean":true,"files":{},"output":[],"dependencies":{}}

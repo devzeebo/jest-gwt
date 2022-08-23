@@ -1,4 +1,4 @@
-import {
+import type {
   beforeEach as jestBeforeEach,
   afterEach as jestAfterEach,
 } from '@jest/globals';
