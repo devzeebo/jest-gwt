@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable no-console -- its a test */
 import axios from 'axios';
 import { mocked } from 'jest-mock';
 import { expect } from '@jest/globals';
@@ -6,7 +6,7 @@ import test, { withAspect } from '../src';
 import validateEmailAddress from './axios';
 
 jest.mock('axios');
-const mocked_axios = mocked(axios, true);
+const mocked_axios = mocked(axios, { shallow: false });
 
 describe('the validate email address api', () => {
   test('returns true for valid email addresses', {
